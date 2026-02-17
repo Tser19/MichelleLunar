@@ -203,7 +203,7 @@ body {
     }
 }
 
-@keyframes s2024Animation {
+@keyframes s2027Animation {
     0% {
         top: 0;
     }
@@ -235,13 +235,13 @@ body {
     animation-delay: 3s;
 }
 
-.s2024 {
+.s2027 {
     position: absolute;
     top: 0;
     height: 200px;
     left: 20px;
     transition: .8s;
-    animation: s2024Animation 4s ease-in-out infinite;
+    animation: s2027Animation 4s ease-in-out infinite;
     animation-delay: 3s;
 }
 
