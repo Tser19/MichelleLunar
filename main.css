@@ -4,6 +4,7 @@ body {
     overflow: hidden;
     user-select: none;
     display: block;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 .dpf {
@@ -29,55 +30,57 @@ body {
     position: relative;
     height: 100vh;
     top: 0;
-    transition: all .6s ease;
+    transition: transform 0.6s ease; /* Using transform is smoother than 'all' */
     touch-action: none;
 }
+
+/* 2. Page 1 Layout */
 .page1 {
     background-image: radial-gradient(#9a281f, #bc291c);
+    perspective: 100vw;
     perspective-origin: 20% center;
     z-index: 1;
     position: relative;
-    perspective: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
+/* 3. Decorative Images & Elements */
 .long {
     position: absolute;
-    transition: 2s;
     bottom: -5px;
-    height: 500px;
     right: -13px;
+    height: 500px;
     pointer-events: none;
+    transition: 2s;
     animation: longAnimation 4s ease-in-out infinite;
 }
 
 .righttopimg {
     position: absolute;
     top: 0;
-    height: 600px;
     right: -15px;
-    animation: rbAnimation 4s ease-in-out infinite;
-    animation-delay: 2s;
+    height: 600px;
+    animation: rbAnimation 4s ease-in-out infinite 2s;
 }
 
 .yuandanimg {
     position: absolute;
     top: 6%;
     right: 50%;
+    transform: translateX(50%);
     transition: 2s;
-    transform: translateY(0) translateX(50%);
-    animation: TYAnimation 4s ease-in-out infinite;
-    animation-delay: 1.5s;
+    animation: TYAnimation 4s ease-in-out infinite 1.5s;
 }
 
 .JSimg {
+    position: absolute;
+    bottom: 55px;
     height: 60%;
     opacity: 0;
-    bottom: 55px;
-    transition: all .5s;
-    position: absolute;
+    transition: all 0.5s;
 }
 
 .jstitle {
@@ -85,7 +88,7 @@ body {
     position: absolute;
     top: calc(50% - 35px);
     left: calc(50% - 213px);
-    transition: .8s;
+    transition: 0.8s;
 }
 
 .titlesec {
@@ -97,132 +100,26 @@ body {
 .giftimg {
     position: absolute;
     bottom: 23px;
-    height: 650px;
     left: -13px;
-    animation: giftAnimation 4s ease-in-out infinite;
-    animation-delay: 1.5s;
+    height: 650px;
+    animation: giftAnimation 4s ease-in-out infinite 1.5s;
 }
 
 .botttomclludimg {
     position: absolute;
     bottom: -10px;
-    height: 220px;
     left: -13px;
+    height: 220px;
     pointer-events: none;
-    animation: bcAnimation 4s ease-in-out infinite;
-    animation-delay: 2s;
-}
-
-@keyframes rbAnimation {
-    0% {
-        right: -10px;
-    }
-
-    50% {
-        right: 0;
-    }
-
-    100% {
-        right: -10px;
-    }
-}
-
-@keyframes qqAnimation {
-    0% {
-        transform: translateX(0);
-    }
-
-    50% {
-        transform: translateX(10px);
-    }
-
-    100% {
-        transform: translateX(0);
-    }
-}
-
-@keyframes TYAnimation {
-    0% {
-        transform: translateY(0) translateX(50%);
-    }
-
-    50% {
-        transform: translateY(10px) translateX(50%);
-    }
-
-    100% {
-        transform: translateY(0) translateX(50%);
-    }
-}
-
-@keyframes bcAnimation {
-    0% {
-        bottom: -10px;
-        left: -13px;
-    }
-
-    50% {
-        bottom: 0px;
-        left: -15px;
-    }
-
-    100% {
-        bottom: -10px;
-        left: -13px;
-    }
-}
-
-@keyframes giftAnimation {
-    0% {
-        bottom: 23px;
-        left: -13px;
-    }
-
-    50% {
-        bottom: 16px;
-        left: 0;
-    }
-
-    100% {
-        bottom: 23px;
-        left: -13px;
-    }
-}
-
-@keyframes longAnimation {
-    0% {
-        bottom: -5px;
-    }
-
-    50% {
-        bottom: 10px;
-    }
-
-    100% {
-        bottom: -5px;
-    }
-}
-
-@keyframes s2027Animation {
-    0% {
-        top: 0;
-    }
-
-    50% {
-        top: -5px;
-    }
-
-    100% {
-        top: 0;
-    }
+    animation: bcAnimation 4s ease-in-out infinite 2s;
 }
 
 .yanhua2 {
     position: absolute;
     bottom: 80px;
+    right: 40px;
     width: 280px;
     height: 280px;
-    right: 40px;
 }
 
 .denglongtop {
@@ -231,124 +128,82 @@ body {
     left: calc(50vw - 250px);
     width: 500px;
     transition: 1.5s;
-    animation: qqAnimation 4s ease-in-out infinite;
-    animation-delay: 3s;
+    animation: qqAnimation 4s ease-in-out infinite 3s;
 }
 
 .s2027 {
     position: absolute;
     top: 0;
-    height: 200px;
     left: 20px;
-    transition: .8s;
-    animation: s2027Animation 4s ease-in-out infinite;
-    animation-delay: 3s;
+    height: 200px;
+    transition: 0.8s;
+    animation: s2027Animation 4s ease-in-out infinite 3s;
 }
 
-.denglongright {
-    position: fixed;
-    width: 280px;
-    height: 280px;
-    right: 0;
-}
-
+/* 4. Bubble / Snow Effect */
 .bubble-container {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    inset: 0; /* Shorthand for top/right/bottom/left: 0 */
     z-index: 0;
     overflow: hidden;
-    top: 0;
-    left: 0;
 }
 
-.bubble-container .bubble {
+.bubble {
     position: absolute;
     bottom: -10rem;
-    width: 4rem;
-    height: 4rem;
-    background-color: #f1f1f1;
+    background-color: rgba(241, 241, 241, 0.5);
     border-radius: 50%;
-    opacity: .5;
     animation: rise 10s infinite ease;
 }
 
-.bubble-container .bubble-1 {
-    width: 4rem;
-    height: 4rem;
-    left: 10%;
-    animation: 8s;
+/* Individual Bubble Tuning (Fixed comma syntax errors here) */
+.bubble-1 { width: 4rem; height: 4rem; left: 10%; animation-duration: 8s; }
+.bubble-2 { width: 2rem; height: 2rem; left: 20%; animation-duration: 5s; animation-delay: 1s; }
+.bubble-3 { width: 5rem; height: 5rem; left: 35%; animation-duration: 7s; animation-delay: 2s; }
+.bubble-4 { width: 8rem; height: 8rem; left: 50%; animation-duration: 11s; }
+.bubble-5 { width: 3.5rem; height: 3.5rem; left: 55%; animation-duration: 6s; animation-delay: 1s; }
+.bubble-6 { width: 4.5rem; height: 4.5rem; left: 65%; animation-duration: 8s; animation-delay: 3s; }
+.bubble-7 { width: 9rem; height: 9rem; left: 75%; animation-duration: 12s; animation-delay: 2s; }
+.bubble-8 { width: 2.5rem; height: 2.5rem; left: 80%; animation-duration: 6s; animation-delay: 2s; }
+
+/* 5. Keyframes (Hardware Accelerated) */
+@keyframes rbAnimation {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(10px); }
 }
 
-.bubble-container .bubble-2 {
-    width: 2rem;
-    height: 2rem;
-    left: 20%;
-    animation-duration: 5s;
-    animation-delay: 1s;
+@keyframes qqAnimation {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(10px); }
 }
 
-.bubble-container .bubble-3 {
-    width: 5rem;
-    height: 5rem;
-    left: 35%;
-    animation-duration: 7s;
-    animation-delay: 2s;
+@keyframes TYAnimation {
+    0%, 100% { transform: translateY(0) translateX(50%); }
+    50% { transform: translateY(10px) translateX(50%); }
 }
 
-.bubble-container .bubble-4 {
-    width: 8rem;
-    height: 8rem;
-    left: 50%;
-    animation-duration: 11s;
-    animation-delay: 0s;
+@keyframes bcAnimation {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-2px, 10px); }
 }
 
-.bubble-container .bubble-5 {
-    width: 3.5rem;
-    height: 3，5rem;
-    left: 55%;
-    animation-duration: 6s;
-    animation-delay: 1s;
+@keyframes giftAnimation {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(13px, -7px); }
 }
 
-.bubble-container .bubble-6 {
-    width: 4.5rem;
-    height: 4，5rem;
-    left: 65%;
-    animation-duration: 8s;
-    animation-delay: 3s;
+@keyframes longAnimation {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(15px); }
 }
 
-.bubble-container .bubble-7 {
-    width: 9rem;
-    height: 9rem;
-    left: 75%;
-    animation-duration: 12s;
-    animation-delay: 2s;
+@keyframes s2027Animation {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
 }
-
-.bubble-container .bubble-8 {
-    width: 2.5rem;
-    height: 2.5rem;
-    left: 80%;
-    animation-duration: 6s;
-    animation-delay: 2s;
-}
-
 
 @keyframes rise {
-    0% {
-        bottom: -10rem;
-        transform: translateX(0);
-    }
-
-    50% {
-        transform: translate(10rem);
-    }
-
-    100% {
-        bottom: 1080px;
-        transform: translateX(-20rem);
-    }
+    0% { bottom: -10rem; transform: translateX(0); }
+    50% { transform: translateX(10rem); }
+    100% { bottom: 110vh; transform: translateX(-20rem); }
 }
