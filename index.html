@@ -6,13 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./main.css" type="text/css" />
-    <title>NewYear</title>
+    <title>New Year 2027</title>
+    <style>
+        /* Custom Styles for the Text */
+        .text-overlay {
+            position: absolute;
+            top: 45%; /* Adjust this to move text up/down */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 100; /* Ensures text is above all images */
+            text-align: center;
+            width: 100%;
+            pointer-events: none; /* Allows clicking through text to images below */
+        }
+
+        .main-title {
+            font-size: 4rem;
+            color: #ffde59; /* Festive Gold */
+            font-family: 'Microsoft YaHei', sans-serif;
+            margin: 0;
+            text-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 2px 2px 5px #000;
+            letter-spacing: 5px;
+            font-weight: bold;
+        }
+
+        .sub-title {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-top: 10px;
+            text-shadow: 1px 1px 3px #000;
+        }
+
+        /* Basic container setup to ensure positioning works */
+        .page-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .page-item {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </head>
 
 <body>
     <div class="page-container">
         <div class="page-item page1">
-            <img alt src="./bgp.jpg" class="fullweb" />
+            <img alt="Background" src="./bgp.jpg" class="fullweb" />
+            
             <div class="bubble-container">
                 <div class="bubble bubble-1"></div>
                 <div class="bubble bubble-2"></div>
@@ -23,13 +68,19 @@
                 <div class="bubble bubble-7"></div>
                 <div class="bubble bubble-8"></div>
             </div>
-            <img alt src="./qiqiu.png" class="denglongtop" />
-            <img alt src="./bgright.png" class="righttopimg" />
-            <img alt src="./gift.png" class="giftimg" />
-            <img alt src="./yuandan.png" id="yuandan" class="yuandanimg" />
-            <img alt src="./cloudbottom.png" class="botttomclludimg" />
-            <img alt src="./2027.png" class="s2027" id="s2027" />
-            <img alt src="./long.png" id="long" class="long" />
+
+            <div class="text-overlay">
+                <h1 class="main-title">新年快乐</h1>
+                <p class="sub-title">Happy New Year 2027</p>
+            </div>
+
+            <img alt="Balloons" src="./qiqiu.png" class="denglongtop" />
+            <img alt="Decoration" src="./bgright.png" class="righttopimg" />
+            <img alt="Gift" src="./gift.png" class="giftimg" />
+            <img alt="Yuan Dan" src="./yuandan.png" id="yuandan" class="yuandanimg" />
+            <img alt="Clouds" src="./cloudbottom.png" class="botttomclludimg" />
+            <img alt="2027" src="./2027.png" class="s2027" id="s2027" />
+            <img alt="Dragon" src="./long.png" id="long" class="long" />
         </div>
     </div>
 </body>
